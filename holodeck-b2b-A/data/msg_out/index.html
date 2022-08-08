@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script type="text/javascript">
+    function testname() {
+      fetch("http://localhost/3000/").then((response) =>
+        console.log("changed")
+      );
+    }
+  </script>
+  <head>
+    <title>Sender</title>
+  </head>
+  <style>
+    .text-center {
+      text-align: center;
+    }
+    .button.block {
+      display: block;
+      width: 200px;
+    }
+
+    .margin-auto {
+      margin: 0 auto;
+    }
+  </style>
+  <body>
+    <div class="text-center">
+      <button onclick="testname()" type="submit">Send</button>
+    </div>
+  </body>
+</html>
