@@ -17,6 +17,6 @@ The message contains two payloads, one XML document in the SOAP body and one JPE
                 <Property name="original-file-name">simple_document.xml</Property>
             </PartProperties>
         </PartInfo>
-        <PartInfo containment="attachment" mimeType="application/json" location="payloads/testdata.json"/>
+        <PartInfo containment="attachment" mimeType="image/jpeg" location="payloads/summerflower.jpg"/>
     </PayloadInfo>
 </MessageMetaData>

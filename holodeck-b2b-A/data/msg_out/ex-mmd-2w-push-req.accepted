@@ -13,6 +13,6 @@ The message contains a JPEG image as payload
         <ConversationId>org:holodeckb2b:test:conversation</ConversationId>
     </CollaborationInfo>
     <PayloadInfo deleteFilesAfterSubmit="false">
-        <PartInfo containment="attachment" mimeType="application/json" location="payloads/testdata.json"/>
+        <PartInfo containment="attachment" mimeType="image/jpeg" location="payloads/dandelion.jpg"/>
     </PayloadInfo>
 </MessageMetaData>

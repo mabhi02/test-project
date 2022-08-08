@@ -2,6 +2,8 @@
 <!-- 
 Example messsage meta-data document to send the response message of a 2-Way message exchange
 using P-Mode ex-pm-2way-push-resp
+
+The message contains a JPEG image as payload
 -->
 <MessageMetaData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://holodeck-b2b.org/schemas/2014/06/mmd ../repository/xsd/messagemetadata.xsd"
@@ -18,6 +20,6 @@ using P-Mode ex-pm-2way-push-resp
         <ConversationId>org:holodeckb2b:test:conversation</ConversationId>
     </CollaborationInfo>
     <PayloadInfo deleteFilesAfterSubmit="false">
-        <PartInfo containment="attachment" mimeType="application/json" location="payloads/testdata.json"/>
+        <PartInfo containment="attachment" mimeType="image/jpeg" location="payloads/dandelion.jpg"/>
     </PayloadInfo>
 </MessageMetaData>
