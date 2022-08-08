@@ -1,0 +1,32 @@
+#How to pass between instances on Holodeck. 
+More advanced information on ways to push and patters can be found here: http://holodeck-b2b.org/documentation/message-exchange-patterns/
+Download & Install
+2. Make sure you have a Java Run-time Environment installed, version 1.8 or later, as Holodeck B2B requires Java SE 8 or higher to run successfully.
+3. Extract the downloaded zip file to a directory of your choice. Rename the extracted folder to holodeck-b2b-A (or anything you like), from now on referred to as «A».
+4. You will need two Holodeck B2B instances to test an actual message transfer. Extract the zip for a second time and then rename the extracted folder holodeck-b2b-B, from now on referred to as «B».
+
+Configure
+5. Change the port configuration. Because the configuration for both instances is the same, you need to change the configuration of one to be able to start them both.
+To do this, edit the holodeckb2b.xml file in «B»/conf. In the file change the port number in the following element:
+
+<transportReceiver name=“http”class=“org.holodeckb2b.core.axis2.HTTPListener”>
+<parameter name=“port”>9090</parameter>
+We recommend changing the port number to 9090 as this number is already included in the examples.
+6. Define the environment variable JAVA_HOME to indicate where the Java run time is located.
+7. Configure the message exchanges. The download package contains example P-Modes for the exchange of messages using both the One-Way/Push and One-Way/Pull message exchange patterns (MEPs) and different security settings. We will continue with a push message.
+To enable a push from instance A (sender) to instance B (receiver), copy only the ex-pm-push-init.xml file from the examples directory to the «A»/repository/pmodes directory and copy the ex-pm-push-resp.xml file  from the examples directory to the «B»/repository/pmodes directory.
+
+Starting and stopping the server
+8. To start the instance go to the bin directory of the instance and enter the command ./startServer.sh , use startServer.bat on the Windows platform.
+The server will run in the foreground so you have to open two terminal sessions to start both instances.
+9. To stop a running instance just press <CTRL>+<C>.
+Leave both instances running to continue with exchanging a message.
+
+Exchanging messages
+To send a message from instance A to instance B:
+10. Copy the contents of «A»/examples/msgs to «A»/data/msg_out. The directory «A»/data/msg_out is ‘watched’ by Holodeck B2B for MMD files that trigger message sending.
+11.To trigger the send process rename ex-mmd-push.accepted to ex-mmd-push.mmd.
+If Holodeck B2B is running correctly you will see the extension change to ‘processing’ and then back to ‘accepted’ which indicates the message was successfully submitted and Holodeck B2B has started processing the message. Note that this does not imply that the message was successfully sent to the other MSH, it only indicates the message will be processed by Holodeck B2B.
+12. In «B»/data/msg_in you will see two files that contain the received message: one with the extension mmd.xml containing the message meta-data and one starting with pl- which contains the payload data.
+
+As this P-Mode also configures the use of receipts to acknowledge that messages are received you should also see a file in the «A»/data/msg_in directory. This file contains the meta-data of the receipt signal
